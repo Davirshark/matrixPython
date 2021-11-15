@@ -1,7 +1,7 @@
 class Matrix(object):
 
     lines = 0
-    collums = 0
+    columms = 0
     body = []
 
     def __init__(self, lines, columms):
@@ -28,8 +28,8 @@ class Matrix(object):
         for line in range(self.lines):
             for columm in range(self.columms):
                 self.element = int(input
-                                   (f"Digite um valor na posição [{line}][{columm}]: ".format([line],
-                                                                                              [columm])))
+    (f"Digite um valor na posição [{line}][{columm}]: "
+    .format([line],[columm])))
                 self.body[line][columm] = self.element
         return self.body
 
@@ -85,7 +85,15 @@ class Matrix(object):
                 pass
 
     def sum(self, sumMatrix):
-        pass
+        Soma = Matrix (self.lines, self.columms)
+        if (self.lines == sumMatrix.lines) and (self.columms == sumMatrix.columms):
+            for i in range (self.lines):
+                for j in range (self.columms):
+                   Soma.body[i][j] = self.body[i][j] + sumMatrix.body[i][j]
+            return Soma.body
+        else:
+            return "Matrizes de tamanho diferentes não podem ser somadas"
+
 
     def mult(self, multMatrix):
         pass
