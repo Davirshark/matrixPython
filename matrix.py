@@ -34,7 +34,7 @@ class Matrix(object):
     (f"Digite um valor na posição [{line}][{columm}]: "
     .format([line],[columm])))
                 self.body[line][columm] = self.element
-        return self.body
+        
 
     def pDiagonal(self):
         if self.isSquare():
@@ -78,7 +78,7 @@ class Matrix(object):
     def transpoose(self):
         mat_transpoose = list(map(lambda *i: [j for j in i], *self.body))
         self.body = mat_transpoose
-        return self.body
+        return self
 
     def det(self):
         if self.isSquare():
@@ -93,7 +93,7 @@ class Matrix(object):
             for i in range (self.lines):
                 for j in range (self.columms):
                    Soma.body[i][j] = self.body[i][j] + sumMatrix.body[i][j]
-            return Soma.body
+            return Soma
         else:
             return "Matrizes de tamanho diferentes não podem ser somadas"
 
@@ -111,7 +111,7 @@ class Matrix(object):
                     listMult = [x*y for x, y in zip(self.getLinha(i), multMatrix.getColuna(j))]
                     result.body[i][j] = sum(listMult)
             
-            return result.body                 
+            return result                
         else:
             return "Matrizes que não podem ser multiplicadas"
 
