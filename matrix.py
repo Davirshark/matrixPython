@@ -18,6 +18,9 @@ class Matrix(object):
     def show(self):
         return print(self.body)
 
+    def lenght(self):
+        return self.lines * self.columms
+
     def isSquare(self):
         if (self.lines == self.columms) or (self.columms == self.lines):
             return True
@@ -94,6 +97,21 @@ class Matrix(object):
         else:
             return "Matrizes de tamanho diferentes não podem ser somadas"
 
+    def getLinha(self, n):
+        return [i for i in self.body[n]] 
+
+    def getColuna(self, n):
+        return [i[n] for i in self.body]
 
     def mult(self, multMatrix):
-        pass
+        if (self.columms == multMatrix.lines):
+            result = Matrix (self.lines, multMatrix.columms)
+            for i in range(self.lines):           
+                for j in range(multMatrix.columms):
+                    listMult = [x*y for x, y in zip(self.getLinha(i), multMatrix.getColuna(j))]
+                    result.body[i][j] = sum(listMult)
+            
+            return result                  
+        else:
+            return "Matrizes que não podem ser multiplicadas"
+
