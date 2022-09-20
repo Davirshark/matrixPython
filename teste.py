@@ -1,9 +1,9 @@
 from matrix import Matrix
 
 Davi = Matrix (2,2)
-Paulin = Matrix (2,3)
+Paulin = Matrix (2,2)
 
 Davi.fill()
 Paulin.fill()
-resultado = Matrix.mult(Davi, Paulin)
-print(resultado.body)
+resultado = Matrix.sum(Davi, Paulin)
+print(resultado)

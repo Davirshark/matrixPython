@@ -111,7 +111,7 @@ class Matrix(object):
                     listMult = [x*y for x, y in zip(self.getLinha(i), multMatrix.getColuna(j))]
                     result.body[i][j] = sum(listMult)
             
-            return result                  
+            return result.body                 
         else:
             return "Matrizes que não podem ser multiplicadas"
 
